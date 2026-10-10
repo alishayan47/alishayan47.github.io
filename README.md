@@ -70,3 +70,12 @@ No backend is needed; all project pages are rendered by React using URL hash rou
 ## Build notes
 
 This environment could prepare and check the source and media files, but its npm registry was unreachable during packaging, so a production build could not be executed here. After running `npm install` locally, `npm run build` should generate `dist/`; review the pages locally before publishing.
+
+
+## V3 readability update (October 2026)
+
+V3 gives the homepage a clearer introduction, larger typography, four focused featured project cards, a collapsed archive for smaller projects, and one concise About section. No personal photograph is required. Existing academic projects and media remain intact; projects excluded for ownership/permission reasons remain excluded.
+
+**Updating the GitHub Pages repo via GitHub Desktop:** copy the contents of this folder into your cloned `alishayan47.github.io` folder (do not replace the `.git` directory). Commit and push. The existing GitHub Actions workflow rebuilds the site automatically.
+
+The repository build is the authoritative production check. Local npm installation may fail in restricted/offline workspaces.
