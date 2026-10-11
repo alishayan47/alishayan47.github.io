@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { filters, profile, projects } from './content';
+import DissertationCaseStudy from './DissertationCaseStudy';
 
 function useRoute() {
   const [hash, setHash] = useState(window.location.hash);
@@ -31,12 +32,13 @@ function BrandMark() {
   </a>;
 }
 
-function Nav() {
+function Nav({ onProjects }) {
   return <header className="site-header">
     <div className="shell nav-inner">
       <BrandMark />
       <nav aria-label="Primary navigation" className="nav-links">
-        <a href="#work">Projects</a>
+        <a href="#work" onClick={onProjects}>Work</a>
+        <a href="#research">Research</a>
         <a href="#about">About</a>
         <a href="#contact">Contact <span aria-hidden="true">↗</span></a>
       </nav>
@@ -45,6 +47,12 @@ function Nav() {
 }
 
 function Graphic({ project, large = false }) {
+  if (project.slug === 'distributional-hate-speech') return <div className={`project-art research-distribution-art ${large ? 'project-art-large' : ''}`} aria-label="Illustrative example of different annotator-group label distributions">
+    <div className="research-distribution-inner"><div className="research-diagram-caption">ONE COMMENT · DIFFERENT PERSPECTIVES</div>
+    <div className="research-diagram-comment"><span className="diagram-symbol">“ ”</span><span>Same text, different judgements</span></div>
+    <div className="research-diagram-groups"><div><span>Group A</span><div className="research-distribution-bar"><i style={{width:'33%'}}/><b style={{width:'67%'}}/></div></div><div><span>Group B</span><div className="research-distribution-bar"><i style={{width:'50%'}}/><b style={{width:'50%'}}/></div></div></div>
+    <div className="research-diagram-note">Illustrative annotation distributions · not model results</div></div>
+  </div>;
   if (project.image) return <div className={`project-art ${large ? 'project-art-large' : ''}`}><img src={project.image} alt={`Actual gameplay screenshot from ${project.title}`} loading="lazy" /></div>;
   return <div aria-hidden="true" className={`project-art generated-art art-${project.art} ${large ? 'project-art-large' : ''}`}>
     <div className="visual-grid" />
@@ -60,75 +68,57 @@ function Graphic({ project, large = false }) {
 function ProjectCard({ p, index }) {
   return <a className="project-card" href={`#/project/${p.slug}`} aria-label={`Read case study: ${p.title}`}>
     <div className="card-visual"><Graphic project={p}/><span className="card-index">{String(index + 1).padStart(2, '0')}</span><span className="card-arrow" aria-hidden="true">↗</span></div>
-    <div className="card-body">
-      <div className="card-kicker">{p.categories[0]} <span>·</span> {p.kind}</div>
-      <h3>{p.title}</h3>
-      <p>{p.subtitle}</p>
-      <div className="tag-row">{p.tags.slice(0, 2).map(t => <span key={t}>{t}</span>)}</div>
-    </div>
+    <div className="card-body"><div className="card-kicker">{p.kind} <span>·</span> {p.categories[0]}</div><h3>{p.title}</h3><p>{p.subtitle}</p><div className="tag-row">{p.tags.slice(0, 3).map(t => <span key={t}>{t}</span>)}</div></div>
   </a>;
 }
 
 function Home() {
-  const [showArchive, setShowArchive] = useState(false);
   const [filter, setFilter] = useState('All work');
-  const featured = projects.filter(p => p.prominent);
-  const archive = projects.filter(p => !p.prominent && (filter === 'All work' || p.categories.includes(filter)));
-
+  const [showAll, setShowAll] = useState(false);
+  const results = useMemo(() => projects.filter(p => filter === 'All work' || p.categories.includes(filter)), [filter]);
+  const shown = filter === 'All work' && !showAll ? results.filter(p => p.prominent) : results;
   return <>
-    <Nav />
+    <Nav onProjects={() => { setFilter('All work'); setShowAll(false); }} />
     <main id="top">
       <section className="hero shell" aria-labelledby="hero-title">
         <div className="hero-text">
-          <div className="eyebrow"><span className="signal-dot"/> ALI SHAYAN AMIR  <span className="sep">/</span> SOFTWARE ENGINEER & AI RESEARCHER</div>
-          <h1 id="hero-title">I build software.<br/><span>I investigate intelligence.</span></h1>
-          <p className="hero-description">I develop software, explore machine learning, and build intelligent game systems. I care about the engineering behind the result — not just the final number.</p>
-          <div className="hero-actions">
-            <a className="button button-primary" href="#work">See selected projects <span aria-hidden="true">↗</span></a>
-            <a className="button button-quiet" href="#contact">Get in touch <span aria-hidden="true">→</span></a>
-          </div>
+          <div className="eyebrow"><span className="signal-dot"/> {profile.eyebrow}</div>
+          <h1 id="hero-title">{profile.headline}</h1>
+          <p className="hero-statement">{profile.statement}</p>
+          <p className="hero-description">{profile.summary}</p>
+          <p className="hero-closing">{profile.closing}</p>
+          <div className="hero-actions"><a className="button button-primary" href="#work">Explore my work <span aria-hidden="true">↗</span></a><a className="button button-quiet" href="#about">More about me <span aria-hidden="true">→</span></a></div>
         </div>
-        <div className="hero-bottom"><span><i/> OPEN TO ENGINEERING & RESEARCH OPPORTUNITIES</span><span>{profile.location}</span></div>
+        <div className="hero-graphic" aria-hidden="true"><svg viewBox="0 0 440 390" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="graph-line" x1="0" y1="0" x2="420" y2="390"><stop stopColor="#9ac4e0"/><stop offset="1" stopColor="#8099ba" stopOpacity=".2"/></linearGradient><radialGradient id="graph-glow"><stop stopColor="#7fa3be" stopOpacity=".16"/><stop offset="1" stopColor="#7fa3be" stopOpacity="0"/></radialGradient></defs>
+          <circle cx="225" cy="195" r="180" fill="url(#graph-glow)"/>
+          <g stroke="#9baebf" strokeOpacity=".12">{Array.from({ length: 10 }, (_,i) => <path key={'a'+i} d={`M${i*48} 0V390`}/>) }{Array.from({ length: 9 }, (_,i) => <path key={'b'+i} d={`M0 ${i*48}H440`}/>)}</g>
+          <g stroke="url(#graph-line)" strokeWidth="1.35" opacity=".82"><path d="M49 274L119 206 167 239 222 118 285 170 377 82"/><path d="M119 206L123 104 222 118 293 274 377 293"/><path d="M49 274L166 328 293 274 285 170 377 82"/><path d="M167 239L285 170 377 293"/></g>
+          <g fill="#9cc5e0">{[[49,274],[119,206],[167,239],[222,118],[285,170],[377,82],[123,104],[293,274],[377,293],[166,328]].map(([x,y],i)=><circle key={i} cx={x} cy={y} r={i===3?5.7:3.3} opacity={i===3?1:.8}/>)}</g>
+          <circle cx="222" cy="118" r="18" stroke="#9ac4e0" strokeOpacity=".55" strokeDasharray="3 6"/>
+          <text x="17" y="28" fill="#7792a6" fontSize="10" fontFamily="monospace">// explore · test · understand</text>
+          <text x="289" y="358" fill="#7792a6" fontSize="10" fontFamily="monospace">FIG. 01 / SYSTEMS</text>
+        </svg></div>
+        <div className="hero-bottom"><span><i/> AVAILABLE FOR OPPORTUNITIES</span><span>{profile.location} <span className="sep">/</span> Scroll to explore ↓</span></div>
       </section>
 
       <section id="work" className="section shell work-section" aria-labelledby="work-title">
-        <div className="section-heading">
-          <div><div className="section-index">SELECTED PROJECTS</div><h2 id="work-title">A few things I've built<span className="period">.</span></h2><p>Four projects that best represent my work. Open any card for the technical details.</p></div>
+        <div className="section-heading"><div><div className="section-index">01 / SELECTED WORK</div><h2 id="work-title">Work, explored in depth<span className="period">.</span></h2><p>Experiments, products and systems — with the decisions and trade-offs behind them.</p></div><span className="section-side">{String(projects.length).padStart(2, '0')} PROJECTS</span></div>
+        <div className="filter-bar" role="group" aria-label="Filter projects">
+          {filters.map(f => <button key={f} type="button" className={`filter ${f===filter?'selected':''}`} onClick={()=>{setFilter(f);setShowAll(false)}} aria-pressed={f===filter}>{f}</button>)}
         </div>
-        <div className="projects-grid">{featured.map((p,i) => <ProjectCard key={p.slug} p={p} index={i}/>)}</div>
-        <div className="archive-intro">
-          <div><h3>More work</h3><p>Earlier game development, NLP coursework and collaborative research.</p></div>
-          <button type="button" className="archive-toggle" onClick={() => setShowArchive(v=>!v)} aria-expanded={showArchive} aria-controls="project-archive">{showArchive ? 'Hide other projects' : `Browse ${projects.length-featured.length} more projects`} <span aria-hidden="true">{showArchive?'↑':'↗'}</span></button>
-        </div>
-        {showArchive && <div id="project-archive" className="project-archive">
-          <div className="filter-bar" role="group" aria-label="Filter other projects">
-            {filters.map(f => <button key={f} type="button" className={`filter ${f===filter?'selected':''}`} onClick={()=>setFilter(f)} aria-pressed={f===filter}>{f}</button>)}
-          </div>
-          <div className="archive-list">{archive.map(p => <a key={p.slug} className="archive-row" href={`#/project/${p.slug}`}><div><span className="archive-kind">{p.categories[0]}</span><h4>{p.title}</h4><p>{p.subtitle}</p></div><span className="archive-arrow" aria-hidden="true">↗</span></a>)}</div>
-          {archive.length===0 && <p className="empty-state">No other projects in this category. The featured projects above may match instead.</p>}
-        </div>}
+        <div className="projects-grid">{shown.map((p,i)=><ProjectCard key={p.slug} p={p} index={i}/>)}</div>
+        {filter==='All work' && !showAll && <button className="all-projects-button" type="button" onClick={()=>setShowAll(true)}>View all {projects.length} projects <span aria-hidden="true">↘</span></button>}
+        {!shown.length && <p className="empty-state">No projects in this category yet.</p>}
       </section>
 
-      <section id="about" className="about-section" aria-labelledby="about-title">
-        <div className="shell about-inner">
-          <div className="about-intro"><div className="section-index">ABOUT ME</div><h2 id="about-title">Curious about how<br/>systems really work<span className="period">.</span></h2></div>
-          <div className="about-copy">
-            <p>I'm a computer science graduate with postgraduate training in artificial intelligence. I enjoy both writing the code and understanding why the approach works — or why it doesn't.</p>
-            <div className="about-education">
-              <div><strong>MSc Artificial Intelligence</strong><span>Heriot-Watt University</span></div>
-              <div><strong>BS Computer Science</strong><span>FAST-NUCES, Islamabad</span></div>
-            </div>
-            <p className="skills-label">AREAS I WORK IN</p>
-            <div className="about-tags"><span>Python & ML</span><span>NLP</span><span>Unity & C#</span><span>Algorithms</span><span>Java</span><span>Experimental Evaluation</span></div>
-            <div className="credential"><span className="aside-label">ADDITIONAL TRAINING</span><a href="https://www.credly.com/go/jnTjW8M5" target="_blank" rel="noreferrer">AWS Academy Cloud Foundations ↗</a></div>
-            {profile.cvPath && <a className="text-link" href={profile.cvPath} download>Download CV ↗</a>}
-          </div>
-        </div>
-      </section>
+      <section id="research" className="research-band" aria-labelledby="research-title"><div className="shell research-layout"><div><div className="section-index">02 / RESEARCH APPROACH</div><h2 id="research-title">The result is only<br/>part of the story<span className="period">.</span></h2></div><div className="research-copy"><p>Some of the most useful things I've learned started with an experiment that didn't behave as expected. I enjoy tracing failures back to their assumptions, designing follow-up tests, and explaining what the evidence actually supports.</p><p>My research interests include NLP, model evaluation, optimisation, and the practical limits of machine-learning systems.</p><a href="#work" className="text-link" onClick={()=>{setFilter('Research');setShowAll(true)}}>Browse research projects <span>↗</span></a></div></div></section>
 
-      <section id="contact" className="contact-section" aria-labelledby="contact-title"><div className="shell contact-inner"><div><div className="section-index">LET'S CONNECT</div><h2 id="contact-title">Let's build something<br/>worth exploring<span className="period">.</span></h2><p>Open to software engineering, AI and research opportunities.</p></div><div className="contact-links">{profile.email ? <a href={`mailto:${profile.email}`}>Email me ↗</a> : null}{profile.github && <a href={profile.github} target="_blank" rel="noreferrer">GitHub ↗</a>}{profile.linkedin && <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a>}</div></div></section>
+      <section id="about" className="section shell about-section" aria-labelledby="about-title"><div className="section-index">03 / ABOUT</div><div className="about-grid"><div><h2 id="about-title">Engineer by practice.<br/><span>Researcher by curiosity.</span></h2></div><div className="about-copy"><p>My background combines computer science and postgraduate study in artificial intelligence. I work across hands-on software development, model experimentation and interactive applications.</p><p>I'm especially interested in the space between implementation and understanding: what an algorithm does, why it behaves that way, and how to improve it when a first approach doesn't work.</p><div className="about-tags"><span>Python</span><span>C# / Unity</span><span>Java</span><span>TensorFlow</span><span>NLP & Transformers</span><span>Graph Algorithms</span><span>Experimental Evaluation</span></div><div className="credential"><span className="aside-label">CERTIFICATION</span><a href="https://www.credly.com/go/jnTjW8M5" target="_blank" rel="noreferrer">AWS Academy Cloud Foundations <span aria-hidden="true">↗</span></a><span>20-hour course · 2025</span></div>{profile.cvPath && <a className="text-link" href={profile.cvPath} download>Download CV ↗</a>}</div></div></section>
+
+      <section id="contact" className="contact-section"><div className="shell contact-inner"><div><div className="section-index">04 / CONTACT</div><h2>Have something interesting<br/>to build or investigate<span className="period">?</span></h2><p>I'm open to discussing engineering roles, research opportunities, and interesting technical problems.</p></div><div className="contact-links">{profile.email ? <a href={`mailto:${profile.email}`}>Email me ↗</a> : null}{profile.github ? <a href={profile.github} target="_blank" rel="noreferrer">GitHub ↗</a> : null}{profile.linkedin ? <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a> : null}</div></div></section>
     </main>
-    <footer className="site-footer"><div className="shell footer-inner"><span>© {new Date().getFullYear()} {profile.name}</span><span>Built with React · Hosted on GitHub Pages</span><a href="#top">Back to top ↑</a></div></footer>
+    <footer className="site-footer"><div className="shell footer-inner"><span>© {new Date().getFullYear()} {profile.name === 'YOUR NAME' ? 'Portfolio' : profile.name}</span><span>Built with care, React & GitHub Pages.</span><a href="#top">Back to top ↑</a></div></footer>
   </>;
 }
 
@@ -142,5 +132,5 @@ function Detail({ project }) {
 export default function App(){
   const route = useRoute();
   const project = route.project ? projects.find(p=>p.slug===route.project) : null;
-  return project ? <Detail project={project}/> : <Home/>;
+  return project ? (project.slug === 'distributional-hate-speech' ? <DissertationCaseStudy project={project} Nav={Nav} /> : <Detail project={project}/>) : <Home/>;
 }

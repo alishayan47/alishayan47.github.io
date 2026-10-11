@@ -3,9 +3,11 @@
 export const profile = {
   name: 'Ali Shayan Amir',
   initials: 'AA',
-  eyebrow: 'SOFTWARE ENGINEERING  /  ARTIFICIAL INTELLIGENCE',
-  headline: ['Building practical systems.', 'Asking better questions.'],
-  summary: 'I build software and intelligent systems, and I like understanding what happens when an approach doesn’t work as expected. My work spans AI research, optimisation algorithms, applied machine learning and game development.',
+  eyebrow: 'COMPUTER SCIENCE  /  ARTIFICIAL INTELLIGENCE  /  SOFTWARE DEVELOPMENT',
+  headline: 'Hi, I’m Ali Shayan.',
+  statement: 'I build software, explore algorithms, and experiment with machine learning.',
+  summary: 'I have a background in Computer Science and postgraduate study in Artificial Intelligence at Heriot-Watt University. This portfolio brings together projects I’ve worked on across NLP, neural networks, optimisation, computer vision and game development.',
+  closing: 'Some focus on research and experimentation. Others are about turning ideas into working systems.',
   location: 'United Kingdom',
   email: '', // Set your actual email to enable the Email link
   github: 'https://github.com/alishayan47',
@@ -18,26 +20,27 @@ export const profile = {
 export const projects = [
   {
     slug: 'distributional-hate-speech',
-    title: 'Distributional Hate Speech Prediction',
-    subtitle: 'Modelling human disagreement in NLP',
+    title: 'Context-Augmented Hate Speech Prediction',
+    subtitle: 'Learning annotator perspectives through distributional NLP and retrieved context',
     categories: ['Research', 'AI / ML'],
-    tags: ['NLP', 'RoBERTa', 'Deep Learning', 'Evaluation'],
-    year: '2026', kind: 'MSc dissertation', prominent: true, art: 'nlp',
-    intro: 'A research investigation into predicting distributions of human hate-speech annotations rather than collapsing diverse judgements into a single label.',
-    role: 'Individual MSc dissertation research',
+    tags: ['NLP', 'PyTorch', 'RoBERTa', 'FiLM', 'Semantic Retrieval'],
+    year: '2026', kind: 'Individual MSc dissertation', prominent: true, art: 'nlp',
+    intro: 'Developed and evaluated transformer-based models that predict how demographic and ideological groups interpret hate speech rather than collapsing their judgements into a single label. Compared three identity-conditioning strategies and explored how semantically retrieved context affects distributional predictions.',
+    role: 'Independent research, implementation and evaluation',
     details: [
-      'Explored distributional prediction for subjective NLP labels and evaluated model outputs using distribution-sensitive metrics.',
-      'Compared neural approaches on a dataset containing 19,761 examples, with RoBERTa-base emerging as the strongest reported model.',
-      'Studied the implications of disagreement in human annotations for evaluation and interpretation.'
+      'Constructed subgroup-specific probability distributions from individual annotations in the Measuring Hate Speech dataset.',
+      'Built a RoBERTa baseline and three identity-conditioning methods (tokens, learned embeddings, FiLM).',
+      'Developed identity-specific Wikipedia knowledge repositories, LLM-based summaries and SBERT semantic retrieval.',
+      'Evaluated seven configurations per discourse domain with distributional, subgroup and counterfactual analyses.'
     ],
     metrics: [
-      {value:'0.573', label:'MD (reported)'},
-      {value:'0.456', label:'WS (reported)'},
-      {value:'0.768', label:'Hard-label accuracy'}
+      {value:'7', label:'Model configurations per discourse domain'},
+      {value:'59.4%', label:'Immigration FiLM instances improved with context (JS)'},
+      {value:'58.9%', label:'Women FiLM instances improved with context (JS)'}
     ],
-    takeaway: 'Subjective annotation tasks benefit from considering how people disagree, not just which label wins a vote.',
-    caveat: 'Metrics are from the author’s dissertation notes; full methodological definitions will be added when the final manuscript is reviewed.',
-    links: []
+    takeaway: 'Learned identity representations improved prediction, but reproduced only a small share of empirical subgroup differences. Context helped many individual predictions without delivering uniform aggregate gains.',
+    caveat: 'Individual taught-MSc dissertation (not a peer-reviewed publication). Metrics come from the completed dissertation. No dissertation PDF is hosted on this portfolio.',
+    links: [{label:'Explore source code', href:'https://github.com/alishayan47/Distributional-Hate-Speech-Prediction'}]
   },
   {
     slug: 'ann-pso',
