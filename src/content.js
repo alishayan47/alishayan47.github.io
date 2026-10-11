@@ -98,25 +98,26 @@ export const projects = [
   {
     slug: 'skate-fish',
     title: 'Skate Fish Escape!',
-    subtitle: 'Traffic-aware pursuit AI built on custom A* pathfinding',
+    subtitle: 'A* police pursuit and custom road graphs in a Unity escape game',
     categories: ['Game Development', 'AI / ML', 'Software'],
-    tags: ['Unity', 'C#', 'A*', 'Directed Graphs', 'Game AI'],
-    year: '2026', kind: 'MSc game coursework', prominent: true, art: 'skate', image:'/media/skate-fish.webp',
-    intro: 'A playful arcade escape game whose core technical challenge was coordinating police pursuit and civilian road traffic without using Unity NavMesh.',
-    role: 'Designed and programmed the controller and navigation systems',
+    tags: ['Unity', 'C#', 'A* Pathfinding', 'Directed Graphs', 'Game AI'],
+    year: '2026', kind: 'Solo MSc game coursework', prominent: true, art: 'skate', image:'/media/skate-fish-card.webp',
+    intro: 'A stylised arcade escape game built in Unity. I implemented a manual node-based road network, A* police pursuit, civilian traffic behaviour and the supporting gameplay systems, using free third-party map and character assets.',
+    role: 'Built the player controller, traffic and pursuit navigation, levels and gameplay systems',
     details: [
-      'Implemented A* pursuit across manually authored navigation nodes, using directed graph edges to enforce road rules.',
-      'Required police on Level 2 to reach legal junctions to reverse direction; switched to direct chase when sufficiently close to the player.',
-      'Introduced separate navigation layers in Level 3: directional, randomly routed civilian traffic and bidirectional, more aggressive police routing.',
-      'Developed the player controller and integrated existing visual assets into the game.'
+      'Manually placed navigation nodes and authored directed road connections to control legal turns and lane-following traffic.',
+      'Integrated A* pursuit for moving targets, with a proximity-triggered switch from graph routing to a direct chase.',
+      'Used two navigation graph types in the final level: directed civilian traffic and bidirectional, more aggressive police routing.',
+      'Implemented player movement, collectible and score systems, objectives, collision handling, UI and win/lose logic.',
+      'Integrated free map and character assets rather than building those visual models.'
     ],
     metrics: [
-      {value:'3',label:'Distinct level behaviours'},
-      {value:'2',label:'Navigation graph types'}
+      {value:'3',label:'Levels with evolving AI behaviour'},
+      {value:'2',label:'Road graph types'}
     ],
-    takeaway: 'Changing navigation constraints, not just vehicle speed, made enemy behaviour more challenging across levels.',
-    caveat: 'Gameplay image extracted from the author-provided coursework demo. Full game footage is not embedded in this starter to keep the website lightweight.',
-    links: []
+    takeaway: 'The road graph did more than enable pathfinding: its connectivity controlled vehicle behaviour and helped create difficulty progression.',
+    caveat: 'Solo academic Unity game. Map and character art used free third-party assets; these are not claimed as original visual work.',
+    links: [{label:'Watch gameplay demo (unlisted YouTube)',href:'https://youtu.be/roHZlinKR80'}]
   },
   {
     slug: 'draculas-return',

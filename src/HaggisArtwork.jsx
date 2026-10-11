@@ -6,7 +6,6 @@ export default function HaggisArtwork({ large = false }) {
   return <div className={`haggis-artwork ${large ? 'haggis-artwork-large' : ''}`} role="img" aria-label="Illustrative prepared meal photograph beside a conceptual food-image-to-ingredient-cluster-to-nutrition-estimate pipeline">
     <div className="haggis-photo">
       <img src="/media/haggis-meal-illustration.webp" alt="" loading="lazy" />
-      <span className="haggis-photo-label">01 / MEAL IMAGE</span>
     </div>
     <div className="haggis-flow">
       <span className="haggis-flow-eyebrow">GOOD OLD HAGGIS / VISION PIPELINE</span>

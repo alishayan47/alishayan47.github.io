@@ -5,6 +5,7 @@ import PsoCaseStudy from './PsoCaseStudy';
 import PsoArtwork from './PsoArtwork';
 import HaggisCaseStudy from './HaggisCaseStudy';
 import HaggisArtwork from './HaggisArtwork';
+import SkateFishCaseStudy from './SkateFishCaseStudy';
 
 function useRoute() {
   const [hash, setHash] = useState(window.location.hash);
@@ -59,7 +60,7 @@ function Graphic({ project, large = false }) {
     <div className="research-diagram-groups"><div><span>Group A</span><div className="research-distribution-bar"><i style={{width:'33%'}}/><b style={{width:'67%'}}/></div></div><div><span>Group B</span><div className="research-distribution-bar"><i style={{width:'50%'}}/><b style={{width:'50%'}}/></div></div></div>
     <div className="research-diagram-note">Illustrative annotation distributions · not model results</div></div>
   </div>;
-  if (project.image) return <div className={`project-art ${large ? 'project-art-large' : ''}`}><img src={project.image} alt={`Actual gameplay screenshot from ${project.title}`} loading="lazy" /></div>;
+  if (project.image) return <div className={`project-art ${project.slug === 'skate-fish' ? 'skate-project-art' : ''} ${large ? 'project-art-large' : ''}`}><img src={project.image} alt={`Actual gameplay screenshot from ${project.title}`} loading="lazy" /></div>;
   return <div aria-hidden="true" className={`project-art generated-art art-${project.art} ${large ? 'project-art-large' : ''}`}>
     <div className="visual-grid" />
     {project.art === 'pso' ? <div className="pso-orbit"><i/><i/><i/><i/><i/><i/></div> : null}
@@ -128,5 +129,5 @@ function Detail({ project }) {
 export default function App(){
   const route = useRoute();
   const project = route.project ? projects.find(p=>p.slug===route.project) : null;
-  return project ? (project.slug === 'distributional-hate-speech' ? <DissertationCaseStudy project={project} Nav={Nav} /> : project.slug === 'ann-pso' ? <PsoCaseStudy project={project} Nav={Nav} /> : project.slug === 'good-old-haggis' ? <HaggisCaseStudy project={project} Nav={Nav} /> : <Detail project={project}/>) : <Home/>;
+  return project ? (project.slug === 'distributional-hate-speech' ? <DissertationCaseStudy project={project} Nav={Nav} /> : project.slug === 'ann-pso' ? <PsoCaseStudy project={project} Nav={Nav} /> : project.slug === 'good-old-haggis' ? <HaggisCaseStudy project={project} Nav={Nav} /> : project.slug === 'skate-fish' ? <SkateFishCaseStudy project={project} Nav={Nav} /> : <Detail project={project}/>) : <Home/>;
 }

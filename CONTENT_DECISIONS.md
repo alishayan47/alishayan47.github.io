@@ -95,3 +95,18 @@ Do not add without the portfolio owner's explicit approval.
 **Visuals:** Replace raw clustering/t-SNE and confusion-matrix gallery on portfolio page with a new food-led, conceptual photo→ingredient cluster→nutrition-estimate title-card illustration and a labelled schematic of a real ambiguity example from the report. The food photo is AI-generated and NOT claimed as a dataset observation. No coursework PDF added. The original static chart files are left in the assets folder unused, to avoid destructive deletion; they no longer render on the new page.
 
 **Implementation:** `src/HaggisArtwork.jsx`, `src/HaggisCaseStudy.jsx`, scoped CSS additions and short project-summary changes in `src/content.js`. Haggis route now uses the case-study component. All prior V6-approved pages and content remain unchanged.
+
+
+## Skate Fish Escape! case study — approved and implemented (V8)
+
+**Project:** Solo MSc Unity/C# game coursework. Gameplay systems, player controller, manually authored road/node graph, A* police pursuit, level behaviour, collectibles, scoring, collision objectives and UI. Use clear credit for third-party assets: city/map and character visuals came from free asset packages, not original modelling.
+
+**AI details:** Level 1 simpler highway chase. Level 2 directed city graph enforcing traffic routes/junction-based turnarounds; police A* repathing as player moves and direct chase when close. Level 3 separate civilian directional graph with branching traffic and bidirectional police pursuit graph allowing faster turnarounds. Avoid mislabeling civilian vehicles as pedestrians.
+
+**Visuals:** Actual user-provided Unity captures only. Homepage card shows gameplay; long-form page uses gameplay, node-graph intersection, coloured route debugging, city-wide graph, and police chase captures. Images are lightly cropped to remove Unity editor toolbars and compressed as WebP. No fabricated performance metrics.
+
+**Demo:** https://youtu.be/roHZlinKR80 (user-supplied unlisted coursework video link). Public portfolio link will expose this video URL to anyone viewing the case study.
+
+**Implementation:** `src/SkateFishCaseStudy.jsx`, `src/App.jsx` routing, focused Skate Fish fields in `src/content.js`, scoped CSS and five real screenshot assets plus a card crop. Existing dissertation, PSO and Haggis content remain unchanged except the previously agreed removal of the unnecessary `01 / MEAL IMAGE` label in `src/HaggisArtwork.jsx`.
+
+**No PDF or raw game project uploaded.**

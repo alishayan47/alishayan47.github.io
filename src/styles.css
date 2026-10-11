@@ -144,7 +144,6 @@
 .haggis-artwork .haggis-photo img{transition:transform .45s}
 .project-card:hover .haggis-photo img{transform:scale(1.03)}
 .haggis-photo:after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,#07121d98,transparent 49%)}
-.haggis-photo-label{position:absolute;bottom:16px;left:15px;z-index:1;font:9px 'DM Mono',monospace;letter-spacing:.12em;color:#f4f7fa}
 .haggis-flow{padding:25px 21px 14px;background:radial-gradient(ellipse at 50% 0,#1b3243 0,#0f1c29 75%);position:relative;display:flex;flex-direction:column;min-width:0}
 .haggis-flow-eyebrow{font:8px 'DM Mono',monospace;letter-spacing:.1em;color:#a2c3da;white-space:nowrap}
 .haggis-flow-path{display:flex;flex-direction:column;align-items:stretch;justify-content:center;flex:1;min-height:0;padding-top:7px}
@@ -215,3 +214,33 @@
 }
 
 .haggis-drink-svg{display:block;width:min(100%,160px);height:102px;margin:auto}
+
+
+/* Skate Fish Escape: actual gameplay and development captures; no stock/conceptual artwork. */
+.skate-project-art{background:#162632}
+.skate-project-art img{object-position:center center;filter:saturate(.88) brightness(.85)}
+.skate-main-visual{margin:0 0 40px}
+.skate-main-visual img{display:block;width:100%;max-height:510px;object-fit:cover;object-position:center 52%;border:1px solid #344758;border-radius:7px}
+.skate-main-visual figcaption,.skate-evidence figcaption{font-size:11px;line-height:1.7;color:#91a9ba;padding:11px 3px 0}
+.skate-demo-button{display:inline-flex;align-items:center;gap:18px;padding:13px 17px;border:1px solid #96b6ca;background:#dce9f2;color:#0b1721;border-radius:5px;font-size:13px;font-weight:700;margin-top:28px;transition:background .2s}
+.skate-demo-button:hover{background:#b6d1e4}
+.skate-demo-button span{font-size:17px}
+.skate-evidence{margin:28px 0 32px;max-width:800px}
+.skate-evidence img{display:block;width:100%;height:auto;max-height:490px;object-fit:contain;border-radius:6px;border:1px solid #3a4b5b;background:#101923}
+.skate-evidence-wide{max-width:none}
+.skate-case-study .dissertation-section h3{margin-top:24px}
+.skate-case-study .dissertation-section .skate-level-list h3{margin-top:0}
+.skate-level-list{display:grid;gap:15px;margin:27px 0 35px}
+.skate-level-list>div{display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:18px 20px;background:#142330;border:1px solid #334758;border-radius:5px}
+.skate-level-list>div>span{font:12px 'DM Mono',monospace;color:#9fc2d9;padding-top:6px}
+.skate-level-list h3{font-size:18px;margin-bottom:7px}
+.skate-level-list p{font-size:14px;line-height:1.72}
+.skate-inline-link{font-weight:650;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#5f8197}
+.skate-inline-link:hover{color:#f1faff}
+@media(max-width:700px){
+  .skate-main-visual img{max-height:310px}
+  .skate-level-list>div{grid-template-columns:30px 1fr;padding:16px 13px;gap:8px}
+  .skate-level-list h3{font-size:16px}
+  .skate-level-list p{font-size:13.5px}
+  .skate-evidence{margin:24px 0 28px}
+}
