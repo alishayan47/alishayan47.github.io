@@ -169,41 +169,28 @@ export const projects = [
     ]
   },
   {
-    slug: 'word-embeddings',
-    title: 'Word Embeddings & Semantic Similarity',
-    subtitle: 'A foundational NLP investigation',
-    categories: ['AI / ML'],
-    tags: ['Word2Vec', 'Gensim', 'NLP', 'Evaluation'],
-    year: '2026', kind: 'MSc group coursework', prominent: false, art: 'word',
-    intro: 'Explored Word2Vec representations across different corpus sizes, evaluated semantic similarity and investigated stereotyped associations in pretrained embeddings.',
-    role: 'Coursework contributor',
-    details: [
-      'Trained and evaluated Word2Vec embeddings using Gensim.',
-      'Compared embedding similarity against WordSim-353 human ratings.',
-      'Explored model hyperparameters, corpus effects and word analogy bias.'
-    ],
-    metrics: [], takeaway: 'Training data scale and evaluation choices strongly influence the quality and behaviour of learned word representations.',
-    caveat: 'Foundational coursework using library implementations; intentionally kept as a smaller project rather than a flagship case study.',
-    links: []
-  },
-  {
     slug: 'llm-safety',
     title: 'Safety–Helpfulness Trade-offs in LLMs',
-    subtitle: 'Dataset engineering for collaborative LLM research',
+    subtitle: 'Studying over-refusal and unsafe compliance across three model families',
     categories: ['Research', 'AI / ML'],
-    tags: ['LLM Safety', 'Dataset Engineering', 'Evaluation'],
-    year: '2026', kind: 'Six-person MSc research project', prominent: false, art: 'safety',
-    intro: 'Collaborative research into how safety training data affects refusal behaviour and helpfulness across Llama, Qwen and Gemma model families.',
-    role: 'Led collection and preparation of experimental datasets; assisted evaluation runs',
+    tags: ['LLM Safety', 'Data Preparation', 'Model Evaluation', 'QLoRA'],
+    year: '2026', kind: 'Six-person MSc group research coursework', prominent: false, art: 'safety',
+    intro: 'An MSc group research project investigating the tension between refusing harmful requests and remaining helpful on legitimate ones. Our team compared safety-tuned Llama 3.1, Qwen 2.5 and Gemma 2 models using 3,000- and 4,000-example training sets, then assessed six model configurations on 1,450 test prompts.',
+    role: 'Dataset sourcing, cleaning and preparation; supporting evaluation runs',
     details: [
-      'Sourced and prepared datasets, including the training, validation and evaluation samples needed by the research team.',
-      'Supported the evaluation lead by running computationally intensive tests.',
-      'Contributed to a shared investigation of over-refusal and unsafe compliance.'
+      'My main contribution was gathering, cleaning and preparing safety-focused prompt datasets, including consistent formatting and evaluation inputs for the team’s experiments.',
+      'Assisted with evaluation runs measuring false refusal rate (FRR) on benign prompts and attack success rate (ASR) on unsafe prompts.',
+      'The wider team used QLoRA fine-tuning and combined automated refusal checks, LLM-based judgements and human feedback to investigate changes in safety and helpfulness.',
+      'The 3K set was heavily skewed toward unsafe prompts, while the 4K set was balanced. Comparisons therefore reflect differences in dataset composition as well as dataset size.'
     ],
-    metrics: [], takeaway: 'Reliable LLM research depends on careful data preparation and consistent evaluation inputs.',
-    caveat: 'Team members led fine-tuning and evaluation design; these are not attributed to the author. Group coursework, not a peer-reviewed publication.',
+    metrics: [
+      {value:'3', label:'Model families compared'},
+      {value:'6', label:'Fine-tuned configurations evaluated'},
+      {value:'1,450', label:'Safe and unsafe test prompts'}
+    ],
+    takeaway: 'The team observed different safety–helpfulness behaviours across models: Qwen offered a comparatively balanced profile, Gemma was more refusal-oriented, and Llama showed greater difficulty balancing safe and unsafe prompts. The study reinforced how dataset composition and model choice affect evaluation outcomes.',
+    caveat: 'Six-person Heriot-Watt MSc coursework project, not a peer-reviewed publication. My personal work centred on data preparation and evaluation support; fine-tuning and the overall evaluation design were collaborative contributions, not claimed as my individual implementation. Reported findings are from the team’s study.',
     links: []
-  }
-];
+  }];
 
 export const filters = ['All work', 'AI / ML', 'Research', 'Game Development'];

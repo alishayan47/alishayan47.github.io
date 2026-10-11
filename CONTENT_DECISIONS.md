@@ -137,3 +137,12 @@ Do not add without the portfolio owner's explicit approval.
 - Increase the readability of small labels, navigation, card subtitles, tags and other metadata slightly.
 - Respect `prefers-reduced-motion`; do not introduce animation dependencies or alter the case studies.
 - No user photo added in this pass.
+
+
+## V12 — Remove Word2Vec and strengthen LLM safety entry (11 October 2026)
+- Remove `word-embeddings` from `src/content.js` and thus from homepage, filters and routes. Leave all other project order and content unchanged. Total project count adjusts automatically.
+- Keep Safety–Helpfulness as a concise *six-person MSc group research coursework* entry; do not build a long-form flagship case study.
+- Paper read: `Over-Refused or Under-Safe? Evaluating Safety Data Scaling Across Llama, Qwen, and Gemma Instruction-Tuned Models` (user-provided ` _F21CA_2026__SafetyTradeoff1-4.pdf`). Study involved Llama 3.1-8B, Qwen 2.5-7B and Gemma 2-9B, with 3K and 4K training datasets, six fine-tuned variants, and 1,450 evaluation prompts; evaluation used FRR, ASR, automated and human judgments.
+- Dataset caveat: 3K was 2,500 unsafe / 500 safe; 4K was 2,000 unsafe / 2,000 safe. Do NOT imply this is a clean size-only scaling experiment.
+- Individual contribution reported by author: dataset sourcing/cleaning/preparation and assistance with evaluation runs. Fine-tuning was by other team members / a collaborative component, not personally claimed.
+- No publication or hosted PDF claim, no new images, no changes to visual V11 motion.
