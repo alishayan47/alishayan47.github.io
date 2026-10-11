@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useMemo, useState } from 'react';
 import { filters, profile, projects } from './content';
 import DissertationCaseStudy from './DissertationCaseStudy';
 import PsoCaseStudy from './PsoCaseStudy';
@@ -73,7 +73,7 @@ function Graphic({ project, large = false }) {
 }
 
 function ProjectCard({ p, index }) {
-  return <a className="project-card" href={`#/project/${p.slug}`} aria-label={`Read case study: ${p.title}`}>
+  return <a className="project-card scroll-reveal" style={{ '--reveal-delay': `${(index % 2) * 75}ms` }} href={`#/project/${p.slug}`} aria-label={`Read case study: ${p.title}`}>
     <div className="card-visual"><Graphic project={p}/><span className="card-index">{String(index + 1).padStart(2, '0')}</span><span className="card-arrow" aria-hidden="true">↗</span></div>
     <div className="card-body"><div className="card-kicker">{p.kind} <span>·</span> {p.categories[0]}</div><h3>{p.title}</h3><p>{p.subtitle}</p><div className="tag-row">{p.tags.slice(0, 3).map(t => <span key={t}>{t}</span>)}</div></div>
   </a>;
@@ -84,6 +84,30 @@ function Home() {
   const [showAll, setShowAll] = useState(false);
   const results = useMemo(() => projects.filter(p => filter === 'All work' || p.categories.includes(filter)), [filter]);
   const shown = filter === 'All work' && !showAll ? results.filter(p => p.prominent) : results;
+  // Reveal only as content approaches the viewport. CSS and content remain usable
+  // without IntersectionObserver, JavaScript motion, or when reduced motion is on.
+  useLayoutEffect(() => {
+    const elements = Array.from(document.querySelectorAll('.scroll-reveal'));
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      elements.forEach(el => el.classList.add('reveal-visible'));
+      return;
+    }
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
+    elements.forEach(el => {
+      if (!el.classList.contains('reveal-visible')) {
+        el.classList.add('reveal-ready');
+        observer.observe(el);
+      }
+    });
+    return () => observer.disconnect();
+  }, [filter, showAll]);
   return <>
     <Nav onProjects={() => { setFilter('All work'); setShowAll(false); }} />
     <main id="top">
@@ -100,7 +124,7 @@ function Home() {
       </section>
 
       <section id="work" className="section shell work-section" aria-labelledby="work-title">
-        <div className="section-heading"><div><div className="section-index">01 / SELECTED WORK</div><h2 id="work-title">Work, explored in depth<span className="period">.</span></h2><p>Experiments, products and systems — with the decisions and trade-offs behind them.</p></div><span className="section-side">{String(projects.length).padStart(2, '0')} PROJECTS</span></div>
+        <div className="section-heading scroll-reveal"><div><div className="section-index">01 / SELECTED WORK</div><h2 id="work-title">Work, explored in depth<span className="period">.</span></h2><p>Experiments, products and systems — with the decisions and trade-offs behind them.</p></div><span className="section-side">{String(projects.length).padStart(2, '0')} PROJECTS</span></div>
         <div className="filter-bar" role="group" aria-label="Filter projects">
           {filters.map(f => <button key={f} type="button" className={`filter ${f===filter?'selected':''}`} onClick={()=>{setFilter(f);setShowAll(false)}} aria-pressed={f===filter}>{f}</button>)}
         </div>
@@ -109,11 +133,11 @@ function Home() {
         {!shown.length && <p className="empty-state">No projects in this category yet.</p>}
       </section>
 
-      <section id="research" className="research-band" aria-labelledby="research-title"><div className="shell research-layout"><div><div className="section-index">02 / RESEARCH APPROACH</div><h2 id="research-title">The result is only<br/>part of the story<span className="period">.</span></h2></div><div className="research-copy"><p>Some of the most useful things I've learned started with an experiment that didn't behave as expected. I enjoy tracing failures back to their assumptions, designing follow-up tests, and explaining what the evidence actually supports.</p><p>My research interests include NLP, model evaluation, optimisation, and the practical limits of machine-learning systems.</p><a href="#work" className="text-link" onClick={()=>{setFilter('Research');setShowAll(true)}}>Browse research projects <span>↗</span></a></div></div></section>
+      <section id="research" className="research-band" aria-labelledby="research-title"><div className="shell research-layout"><div className="scroll-reveal"><div className="section-index">02 / RESEARCH APPROACH</div><h2 id="research-title">The result is only<br/>part of the story<span className="period">.</span></h2></div><div className="research-copy scroll-reveal"><p>Some of the most useful things I've learned started with an experiment that didn't behave as expected. I enjoy tracing failures back to their assumptions, designing follow-up tests, and explaining what the evidence actually supports.</p><p>My research interests include NLP, model evaluation, optimisation, and the practical limits of machine-learning systems.</p><a href="#work" className="text-link" onClick={()=>{setFilter('Research');setShowAll(true)}}>Browse research projects <span>↗</span></a></div></div></section>
 
-      <section id="about" className="section shell about-section" aria-labelledby="about-title"><div className="section-index">03 / ABOUT</div><div className="about-grid"><div><h2 id="about-title">Engineer by practice.<br/><span>Researcher by curiosity.</span></h2></div><div className="about-copy"><p>My background combines computer science and postgraduate study in artificial intelligence. I work across hands-on software development, model experimentation and interactive applications.</p><p>I'm especially interested in the space between implementation and understanding: what an algorithm does, why it behaves that way, and how to improve it when a first approach doesn't work.</p><div className="about-tags"><span>Python</span><span>C# / Unity</span><span>Java</span><span>TensorFlow</span><span>NLP & Transformers</span><span>Graph Algorithms</span><span>Experimental Evaluation</span></div><div className="credential"><span className="aside-label">CERTIFICATION</span><a href="https://www.credly.com/go/jnTjW8M5" target="_blank" rel="noreferrer">AWS Academy Cloud Foundations <span aria-hidden="true">↗</span></a><span>20-hour course · 2025</span></div>{profile.cvPath && <a className="text-link" href={profile.cvPath} download>Download CV ↗</a>}</div></div></section>
+      <section id="about" className="section shell about-section" aria-labelledby="about-title"><div className="section-index">03 / ABOUT</div><div className="about-grid"><div className="scroll-reveal"><h2 id="about-title">Engineer by practice.<br/><span>Researcher by curiosity.</span></h2></div><div className="about-copy scroll-reveal"><p>My background combines computer science and postgraduate study in artificial intelligence. I work across hands-on software development, model experimentation and interactive applications.</p><p>I'm especially interested in the space between implementation and understanding: what an algorithm does, why it behaves that way, and how to improve it when a first approach doesn't work.</p><div className="about-tags"><span>Python</span><span>C# / Unity</span><span>Java</span><span>TensorFlow</span><span>NLP & Transformers</span><span>Graph Algorithms</span><span>Experimental Evaluation</span></div><div className="credential"><span className="aside-label">CERTIFICATION</span><a href="https://www.credly.com/go/jnTjW8M5" target="_blank" rel="noreferrer">AWS Academy Cloud Foundations <span aria-hidden="true">↗</span></a><span>20-hour course · 2025</span></div>{profile.cvPath && <a className="text-link" href={profile.cvPath} download>Download CV ↗</a>}</div></div></section>
 
-      <section id="contact" className="contact-section"><div className="shell contact-inner"><div><div className="section-index">04 / CONTACT</div><h2>Have something interesting<br/>to build or investigate<span className="period">?</span></h2><p>I'm open to discussing engineering roles, research opportunities, and interesting technical problems.</p></div><div className="contact-links">{profile.email ? <a href={`mailto:${profile.email}`}>Email me ↗</a> : null}{profile.github ? <a href={profile.github} target="_blank" rel="noreferrer">GitHub ↗</a> : null}{profile.linkedin ? <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a> : null}</div></div></section>
+      <section id="contact" className="contact-section"><div className="shell contact-inner"><div className="scroll-reveal"><div className="section-index">04 / CONTACT</div><h2>Have something interesting<br/>to build or investigate<span className="period">?</span></h2><p>I'm open to discussing engineering roles, research opportunities, and interesting technical problems.</p></div><div className="contact-links scroll-reveal">{profile.email ? <a href={`mailto:${profile.email}`}>Email me ↗</a> : null}{profile.github ? <a href={profile.github} target="_blank" rel="noreferrer">GitHub ↗</a> : null}{profile.linkedin ? <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a> : null}</div></div></section>
     </main>
     <footer className="site-footer"><div className="shell footer-inner"><span>© {new Date().getFullYear()} {profile.name === 'YOUR NAME' ? 'Portfolio' : profile.name}</span><span>Built with care, React & GitHub Pages.</span><a href="#top">Back to top ↑</a></div></footer>
   </>;

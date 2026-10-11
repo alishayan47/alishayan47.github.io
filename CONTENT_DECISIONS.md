@@ -128,3 +128,12 @@ Do not add without the portfolio owner's explicit approval.
 - Project artwork based on user-supplied low-resolution prototype frames, with enhancement used for presentation. User requested no visual-enhancement footnote on the public project page; captions describe gameplay scenes without claiming these to be untouched source frames.
 - No PDF, video, external link or unrelated code changes.
 - Keep the four flagship case studies, Dracula’s Return, and introduction unchanged.
+
+
+## V11 — Visual polish only (11 October 2026)
+- Preserve the portfolio's minimalist dark theme, existing content, project order and layout.
+- Add gentle one-time scroll reveals to section content and project cards, with a short two-card stagger.
+- Add very faint, stationary blue-grey glows in the hero and research band; no neural-network illustration.
+- Increase the readability of small labels, navigation, card subtitles, tags and other metadata slightly.
+- Respect `prefers-reduced-motion`; do not introduce animation dependencies or alter the case studies.
+- No user photo added in this pass.
