@@ -122,19 +122,25 @@ export const projects = [
   {
     slug: 'draculas-return',
     title: "Dracula’s Return",
-    subtitle: 'Roguelike deck-building prototype',
+    subtitle: 'Gothic roguelike card-battler with branching routes and strategic combat',
     categories: ['Game Development'],
-    tags: ['Deck-building', 'Card Battles', 'Game Design'],
-    year: 'BSc', kind: 'University group project', prominent: false, art: 'dracula',
-    intro: 'A Dracula-themed roguelike card game featuring card-based battles, deck progression, recruitable monsters and rooms to explore.',
-    role: 'Group contributor — specific implementation responsibilities to be documented',
+    tags: ['Unity', 'C#', 'Card Combat', 'Roguelike'],
+    year: 'BSc', kind: 'University group coursework', prominent: false, art: 'dracula', image: '/media/dracula-title.webp',
+    intro: 'Dracula’s Return is a gothic roguelike-inspired card-game prototype built for a university group project. Runs feature branching map routes, different encounters and opportunities to purchase or upgrade cards. My primary contribution was implementing the card-battle functionality.',
+    role: 'Implemented the card-battle system',
     details: [
-      'Worked as part of a university team on a prototype card game.',
-      'A public itch.io project page and gameplay demonstration are available.'
+      'Implemented the energy-based card battle loop: player and enemy both manage energy, while individual cards have health, attack values and costs.',
+      'Built combat resolution around card survival. Surviving cards can be carried into the next round to conserve energy; when cards are defeated, remaining damage affects player health.',
+      'Implemented card power-ups, including sword and shield effects that boost attack or health, and the battle-ending condition when a side reaches zero health.'
     ],
-    metrics: [], takeaway: 'A collaborative game prototype with a publicly documented playable concept.',
-    caveat: 'Specific personal contributions and engine are not yet confirmed; they must be added before presenting this as an individual technical case study.',
-    links: [{label:'View on itch.io',href:'https://darmit165.itch.io/draculas-return'}]
+    metrics: [],
+    takeaway: 'The core decision is how to spend limited energy while preserving surviving cards and choosing upgrades for later rounds.',
+    caveat: 'University group prototype. My main implementation contribution was card combat; I do not claim the branching map, other systems or visual assets as individual work.',
+    links: [{label:'Play the prototype on itch.io',href:'https://darmit165.itch.io/draculas-return'}],
+    gallery: [
+      {src:'/media/dracula-map.webp',alt:'Dracula’s Return branching route map with battle and healing nodes',caption:'Branching encounter map, with battle and healing choices.'},
+      {src:'/media/dracula-combat.webp',alt:'Dracula’s Return card battle with health and attack values on cards',caption:'Card-battle screen showing the character cards, attack and health values.'}
+    ]
   },
   {
     slug: 'operation-nexus',

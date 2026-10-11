@@ -110,3 +110,12 @@ Do not add without the portfolio owner's explicit approval.
 **Implementation:** `src/SkateFishCaseStudy.jsx`, `src/App.jsx` routing, focused Skate Fish fields in `src/content.js`, scoped CSS and five real screenshot assets plus a card crop. Existing dissertation, PSO and Haggis content remain unchanged except the previously agreed removal of the unnecessary `01 / MEAL IMAGE` label in `src/HaggisArtwork.jsx`.
 
 **No PDF or raw game project uploaded.**
+
+
+## V9 — Dracula’s Return (supporting project)
+- Preserve the four flagship case studies and approved introduction unchanged.
+- Dracula’s Return is a concise BSc group-work entry, not a flagship technical report.
+- Main personal contribution: card-combat functionality, including both sides’ energy budgets, card health and attack, survivor carry-over, damage resolution, sword/shield power-ups and terminal health condition.
+- Game overview may mention branching routes, varied encounters and purchasable cards; do not imply the author implemented all of those systems.
+- Public playable link: https://darmit165.itch.io/draculas-return
+- Replace generic card art with the user’s genuine title-screen capture; show only two further genuine screenshots (route map and combat scene) on the supporting-project page. Do not add PDF or a long case study.

@@ -244,3 +244,13 @@
   .skate-level-list p{font-size:13.5px}
   .skate-evidence{margin:24px 0 28px}
 }
+
+/* Small supporting-project image gallery (Dracula's Return). */
+.support-gallery{margin-top:65px}
+.support-gallery .section-index{margin-bottom:19px}
+.support-gallery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+.support-gallery-grid figure{margin:0;min-width:0}
+.support-gallery-grid img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border:1px solid #334351;border-radius:5px;background:#101923}
+.support-gallery-grid figcaption{color:#91a9ba;font-size:11px;line-height:1.7;margin-top:10px}
+.project-art.dracula-project-art img{object-position:center 65%;filter:saturate(.95) brightness(.9)}
+@media(max-width:700px){.support-gallery{margin-top:42px}.support-gallery-grid{grid-template-columns:1fr;gap:24px}}
