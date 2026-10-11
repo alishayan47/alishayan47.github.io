@@ -80,3 +80,18 @@ Do not add without the portfolio owner's explicit approval.
 **Media/publication:** No coursework PDF included; no project GitHub URL was added because none was verified. Do not attribute teammates' unconfirmed contributions as personal solo work.
 
 **Unchanged:** Existing profile introduction, filters, dissertation case study and other projects from V5; the V6 patch only edits PSO project copy, adds PSO case-study and SVG modules, app routing and scoped styling.
+
+
+## Good Old Haggis case study — approved and implemented (V7)
+
+**Positioning:** Compact, candid five-person MSc coursework case study. Focus on the project's nutritional-score ambition, pipeline, Ali's specific work, the label/image mismatch and the investigations that followed. Do NOT present it as a deployed tool or published research.
+
+**Personal contributions:** `img_kmeans_CNN.ipynb` (K-Means ingredient clustering and CNN experiments), `macromapping.ipynb` (bridging ingredient clusters to estimated nutritional data), assisting with ingredient-data preprocessing and documenting the ML analysis. The Random Forest, MLP and perceptron Nutri-Score models were primarily contributed by other members.
+
+**Pipeline:** Normalized ingredient proportion vectors → K-Means classes → image-only CNN predictions of those classes → approximate cluster nutrition estimates → group's separate nutrient-to-Nutri-Score classifiers. This pipeline was exploratory; no claim of reliable nutrition assessment from images.
+
+**Observations:** K=18, silhouette 0.2989; a heterogeneous 430-meal dominant cluster; baseline CNN 29.5% test vs 84.6% train; selected CNN after removing the cluster and augmenting others to 100 images/class 43.27% test. NOT a controlled improvement because classes changed. Multimodal experiment performed better but the ingredient branch could directly reveal target-cluster information, so no validated image-learning claim.
+
+**Visuals:** Replace raw clustering/t-SNE and confusion-matrix gallery on portfolio page with a new food-led, conceptual photo→ingredient cluster→nutrition-estimate title-card illustration and a labelled schematic of a real ambiguity example from the report. The food photo is AI-generated and NOT claimed as a dataset observation. No coursework PDF added. The original static chart files are left in the assets folder unused, to avoid destructive deletion; they no longer render on the new page.
+
+**Implementation:** `src/HaggisArtwork.jsx`, `src/HaggisCaseStudy.jsx`, scoped CSS additions and short project-summary changes in `src/content.js`. Haggis route now uses the case-study component. All prior V6-approved pages and content remain unchanged.

@@ -135,3 +135,83 @@
 .pso-info-list dt{font:11px 'DM Mono',monospace;color:#90aabc}
 .pso-info-list dd{margin:0;font-size:15px;color:#d1dee8;line-height:1.65}
 @media(max-width:700px){.pso-page-art{min-height:220px;height:260px}.pso-parameters-flow{grid-template-columns:1fr;gap:8px}.pso-param-box{min-height:115px}.pso-diagram-arrow{transform:rotate(90deg)}.pso-info-list>div{grid-template-columns:1fr;gap:6px}.pso-case-study .dissertation-finding{margin:30px 0 38px}}
+
+/* Good Old Haggis: distinct, food-led artwork and focused case study. */
+.haggis-project-art{background:#0d1b24}
+.haggis-artwork{height:100%;min-height:0;display:grid;grid-template-columns:48% minmax(0,1fr);background:#101b25;color:#d9e7f1;overflow:hidden}
+.haggis-photo{position:relative;min-width:0;min-height:0;overflow:hidden;background:#111820}
+.haggis-photo img{width:100%;height:100%;object-fit:cover;object-position:48% 52%;display:block;filter:saturate(.77) brightness(.9)}
+.haggis-artwork .haggis-photo img{transition:transform .45s}
+.project-card:hover .haggis-photo img{transform:scale(1.03)}
+.haggis-photo:after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,#07121d98,transparent 49%)}
+.haggis-photo-label{position:absolute;bottom:16px;left:15px;z-index:1;font:9px 'DM Mono',monospace;letter-spacing:.12em;color:#f4f7fa}
+.haggis-flow{padding:25px 21px 14px;background:radial-gradient(ellipse at 50% 0,#1b3243 0,#0f1c29 75%);position:relative;display:flex;flex-direction:column;min-width:0}
+.haggis-flow-eyebrow{font:8px 'DM Mono',monospace;letter-spacing:.1em;color:#a2c3da;white-space:nowrap}
+.haggis-flow-path{display:flex;flex-direction:column;align-items:stretch;justify-content:center;flex:1;min-height:0;padding-top:7px}
+.haggis-flow-node{display:flex;align-items:center;gap:9px;border:1px solid #45617a;background:#192b3c;border-radius:4px;padding:7px 8px;min-width:0}
+.haggis-flow-node strong{display:block;font:650 11px Manrope,'DM Sans',sans-serif;letter-spacing:-.02em;white-space:normal}
+.haggis-flow-node small{display:block;font:9px 'DM Sans',sans-serif;color:#a4bac9;margin-top:2px;line-height:1.15}
+.haggis-flow-icon{min-width:31px;height:27px;display:flex;justify-content:center;align-items:center;font-size:18px;color:#a8d1e8}
+.haggis-flow-icon-cluster{position:relative;gap:3px}
+.haggis-flow-icon-cluster i{display:block;width:6px;height:6px;border-radius:50%;background:#92b3ce}
+.haggis-flow-icon-cluster i:nth-child(2){background:#bdd8e9;transform:translateY(-5px)}
+.haggis-flow-icon-cluster i:nth-child(3){background:#688fac;transform:translateY(4px)}
+.haggis-flow-icon-score{font:bold 10px 'DM Mono',monospace;color:#c2e1ef}
+.haggis-flow-connector{font:12px 'DM Mono',monospace;text-align:center;line-height:16px;color:#99bad1}
+.haggis-flow-footer{font:8px 'DM Mono',monospace;letter-spacing:.085em;color:#82a8bd;white-space:nowrap;padding-top:9px}
+.haggis-hero{margin:0 0 38px}
+.haggis-hero .haggis-artwork{height:365px;border:1px solid #354a5b;border-radius:7px;grid-template-columns:49% 1fr}
+.haggis-hero .haggis-flow{padding:33px 38px}
+.haggis-hero .haggis-flow-eyebrow{font-size:11px}
+.haggis-hero .haggis-flow-path{max-width:335px;width:100%;margin:auto}
+.haggis-hero .haggis-flow-node{padding:12px 14px;gap:16px}
+.haggis-hero .haggis-flow-node strong{font-size:16px}
+.haggis-hero .haggis-flow-node small{font-size:12px;margin-top:5px}
+.haggis-hero .haggis-flow-connector{line-height:22px;font-size:15px}
+.haggis-hero .haggis-flow-icon{min-width:42px;font-size:23px}
+.haggis-hero .haggis-flow-icon-score{font-size:13px}
+.haggis-hero .haggis-flow-footer{font-size:10px}
+.haggis-hero figcaption{color:#8099aa;font-size:11px;line-height:1.6;padding:10px 2px 0}
+.haggis-case-study .dissertation-section h3{margin-top:29px}
+.haggis-case-study .haggis-stage h3{margin-top:0}
+.haggis-stages{display:grid;gap:16px;margin:28px 0 30px}
+.haggis-stage{display:grid;grid-template-columns:38px 1fr;gap:14px;align-items:start;border:1px solid #324453;border-radius:5px;background:#131e2a;padding:18px 19px}
+.haggis-stage>span{font:12px 'DM Mono',monospace;color:#a7cce4;padding-top:5px}
+.haggis-stage h3{font-size:17px;line-height:1.35;margin:0 0 5px}
+.haggis-stage p{font-size:14px;line-height:1.6;color:#b7c9d6}
+.haggis-ambiguity{border:1px solid #3a5060;border-radius:6px;background:#121e29;padding:22px;margin:28px 0 32px}
+.haggis-ambiguity .section-index{margin-bottom:18px;font-size:9px;letter-spacing:.07em}
+.haggis-ambiguity-pair{display:grid;grid-template-columns:minmax(0,1fr) 25px minmax(0,1fr);align-items:center;gap:13px}
+.haggis-ambiguity-example{min-width:0;border:1px solid #364f61;border-radius:5px;background:#1b2c3c;padding:14px 13px;text-align:center}
+.haggis-ambiguity-example>span{display:block;color:#98bdd6;font:9px 'DM Mono',monospace;margin-bottom:9px}
+.haggis-ambiguity-icon{font-size:33px;line-height:1;color:#b4cfe2;margin-bottom:13px}
+.haggis-ambiguity-example:nth-child(3) .haggis-ambiguity-icon{color:#e5b5ae}
+.haggis-ambiguity-example strong{display:block;font-size:12px;line-height:1.5}
+.haggis-ambiguity-example p{font-size:11px;line-height:1.45;margin:4px 0;color:#9bb5c7}
+.haggis-ambiguity-example small{font:9px 'DM Mono',monospace;color:#a9c3d4;line-height:1.6}
+.haggis-ambiguity-divider{text-align:center;color:#bad9eb;font-size:20px}
+.haggis-ambiguity figcaption{color:#91a9bb;line-height:1.55;font-size:11px;margin-top:16px}
+.haggis-insights{display:grid;gap:12px;margin:26px 0 31px}
+.haggis-insights>div{padding:17px 19px;background:#162331;border-left:2px solid #92bad2}
+.haggis-insights strong{font-size:14px}
+.haggis-insights p{font-size:14px;line-height:1.7;margin-top:5px}
+@media(max-width:700px){
+  .haggis-artwork{grid-template-columns:45% 55%}
+  .haggis-flow{padding:22px 18px 13px}
+  .haggis-flow-eyebrow{font-size:8px;letter-spacing:.03em}
+  .haggis-flow-footer{font-size:7px}
+  .haggis-hero .haggis-artwork{height:280px;grid-template-columns:44% 56%}
+  .haggis-hero .haggis-flow{padding:16px 13px}
+  .haggis-hero .haggis-flow-eyebrow{font-size:8px;white-space:normal}
+  .haggis-hero .haggis-flow-node{padding:9px 7px;gap:7px}
+  .haggis-hero .haggis-flow-node strong{font-size:12px}
+  .haggis-hero .haggis-flow-node small{font-size:10px;line-height:1.3}
+  .haggis-hero .haggis-flow-icon{min-width:22px;font-size:16px}
+  .haggis-hero .haggis-flow-icon-score{font-size:9px}
+  .haggis-hero .haggis-flow-footer{font-size:8px}
+  .haggis-ambiguity-pair{grid-template-columns:1fr;gap:7px}
+  .haggis-ambiguity-divider{font-size:15px}
+  .haggis-ambiguity{padding:17px}
+}
+
+.haggis-drink-svg{display:block;width:min(100%,160px);height:102px;margin:auto}

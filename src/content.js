@@ -73,32 +73,27 @@ export const projects = [
   {
     slug: 'good-old-haggis',
     title: 'Good Old Haggis',
-    subtitle: 'Understanding when a vision model cannot learn the intended labels',
+    subtitle: 'Investigating the limits of nutritional prediction from food photographs',
     categories: ['Research', 'AI / ML'],
-    tags: ['TensorFlow', 'CNN', 'K-Means', 'Computer Vision', 'Failure Analysis'],
-    year: '2026', kind: 'Five-person MSc team project', prominent: true, art: 'vision',
-    intro: 'A collaborative project exploring nutritional-score prediction for prepared meals. My work focused on clustering meals by ingredient composition and training CNNs to predict those clusters from images.',
-    role: 'Owned the ingredient clustering, image-classification experiments and model-bridging work',
+    tags: ['Computer Vision', 'CNN', 'K-Means', 'TensorFlow', 'Failure Analysis'],
+    year: '2026', kind: 'Five-person MSc group coursework', prominent: true, art: 'vision',
+    intro: 'Explored whether a prepared meal’s nutritional characteristics could be inferred from its photograph. My part focused on ingredient-based K-Means clustering, CNN image classification, and investigating why visual features did not consistently correspond to ingredient-derived labels.',
+    role: 'Ingredient clustering, CNN experiments and investigation of model limitations',
     details: [
-      'Developed K-Means ingredient clustering and multiple TensorFlow CNN classifiers.',
-      'Investigated overfitting, unbalanced clusters and the limited correspondence between visual appearance and ingredient-based labels.',
-      'Improved the reported image-only test accuracy from 29.5% in the initial configuration to 43.27% in the selected configuration, alongside changes to class handling.',
-      'Proposed an exploratory multimodal image-plus-ingredient approach, then explicitly examined why its higher accuracy might be misleading.',
-      'Connected the image/cluster pipeline with nutritional estimates using Python scripts and spreadsheet-based mappings.'
+      'Constructed K-Means ingredient-composition clusters and trained CNNs to identify those clusters from prepared-meal images.',
+      'Investigated class imbalance, overfitting and discrepancies between visually recognisable food features and ingredient-based labels.',
+      'Evaluated how removing a dominant noisy cluster and balancing the remaining classes changed CNN behaviour.',
+      'Explored a multimodal model and investigated why its apparent accuracy could be misleading.',
+      'Mapped representative cluster ingredient profiles to approximate nutritional data to help connect the team’s two modelling pipelines.'
     ],
     metrics: [
-      {value:'43.27%', label:'Selected image-only CNN test accuracy'},
-      {value:'18', label:'Ingredient-derived clusters'},
-      {value:'5', label:'Team members'}
+      {value:'18', label:'Ingredient-composition clusters'},
+      {value:'43.27%', label:'Selected image-only CNN test accuracy on revised classes'},
+      {value:'5', label:'Members in the overall team'}
     ],
-    takeaway: 'Poor results can expose a flawed learning formulation: ingredient-defined labels are not always visually recoverable from food photographs.',
-    caveat: 'The team’s nutritional-score classifier was developed by other members. The CNN configurations are not identical controlled experiments; the multimodal result was exploratory, not deployed.',
-    links: [], // The team's GitHub URL appears in the report but currently returns 404; do not show a broken link.
-    figures: [
-      {src:'/media/haggis-before-balancing.webp', alt:'Confusion matrix before class balancing with most predictions concentrated in one class', caption:'Before: model heavily favoured a dominant ingredient cluster.'},
-      {src:'/media/haggis-after-balancing.webp', alt:'Confusion matrix after class balancing with predictions distributed across multiple classes', caption:'After: removing the noisy cluster and balancing the remaining classes.'},
-      {src:'/media/haggis-cluster-tsne.webp', alt:'t-SNE visualisation of ingredient-composition clusters', caption:'Ingredient-derived clusters visualised using t-SNE.'}
-    ]
+    takeaway: 'A more complex model cannot solve a mismatch between a photo’s observable features and the ingredient-based labels it is trained to predict.',
+    caveat: 'Five-person academic project. Other team members implemented the Nutri-Score classifiers. Image-only accuracy followed changes to class composition and is not a directly controlled comparison. The multimodal experiment was exploratory and not validated.',
+    links: []
   },
   {
     slug: 'skate-fish',
