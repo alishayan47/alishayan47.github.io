@@ -49,7 +49,7 @@ function Nav({ onProjects }) {
 function Graphic({ project, large = false }) {
   if (project.slug === 'distributional-hate-speech') return <div className={`project-art research-distribution-art ${large ? 'project-art-large' : ''}`} aria-label="Illustrative example of different annotator-group label distributions">
     <div className="research-distribution-inner"><div className="research-diagram-caption">ONE COMMENT · DIFFERENT PERSPECTIVES</div>
-    <div className="research-diagram-comment"><span className="diagram-symbol">“ ”</span><span>Same text, different judgements</span></div>
+    <div className="research-diagram-comment"><span>Same text, different judgements</span></div>
     <div className="research-diagram-groups"><div><span>Group A</span><div className="research-distribution-bar"><i style={{width:'33%'}}/><b style={{width:'67%'}}/></div></div><div><span>Group B</span><div className="research-distribution-bar"><i style={{width:'50%'}}/><b style={{width:'50%'}}/></div></div></div>
     <div className="research-diagram-note">Illustrative annotation distributions · not model results</div></div>
   </div>;
@@ -89,16 +89,6 @@ function Home() {
           <p className="hero-closing">{profile.closing}</p>
           <div className="hero-actions"><a className="button button-primary" href="#work">Explore my work <span aria-hidden="true">↗</span></a><a className="button button-quiet" href="#about">More about me <span aria-hidden="true">→</span></a></div>
         </div>
-        <div className="hero-graphic" aria-hidden="true"><svg viewBox="0 0 440 390" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="graph-line" x1="0" y1="0" x2="420" y2="390"><stop stopColor="#9ac4e0"/><stop offset="1" stopColor="#8099ba" stopOpacity=".2"/></linearGradient><radialGradient id="graph-glow"><stop stopColor="#7fa3be" stopOpacity=".16"/><stop offset="1" stopColor="#7fa3be" stopOpacity="0"/></radialGradient></defs>
-          <circle cx="225" cy="195" r="180" fill="url(#graph-glow)"/>
-          <g stroke="#9baebf" strokeOpacity=".12">{Array.from({ length: 10 }, (_,i) => <path key={'a'+i} d={`M${i*48} 0V390`}/>) }{Array.from({ length: 9 }, (_,i) => <path key={'b'+i} d={`M0 ${i*48}H440`}/>)}</g>
-          <g stroke="url(#graph-line)" strokeWidth="1.35" opacity=".82"><path d="M49 274L119 206 167 239 222 118 285 170 377 82"/><path d="M119 206L123 104 222 118 293 274 377 293"/><path d="M49 274L166 328 293 274 285 170 377 82"/><path d="M167 239L285 170 377 293"/></g>
-          <g fill="#9cc5e0">{[[49,274],[119,206],[167,239],[222,118],[285,170],[377,82],[123,104],[293,274],[377,293],[166,328]].map(([x,y],i)=><circle key={i} cx={x} cy={y} r={i===3?5.7:3.3} opacity={i===3?1:.8}/>)}</g>
-          <circle cx="222" cy="118" r="18" stroke="#9ac4e0" strokeOpacity=".55" strokeDasharray="3 6"/>
-          <text x="17" y="28" fill="#7792a6" fontSize="10" fontFamily="monospace">// explore · test · understand</text>
-          <text x="289" y="358" fill="#7792a6" fontSize="10" fontFamily="monospace">FIG. 01 / SYSTEMS</text>
-        </svg></div>
         <div className="hero-bottom"><span><i/> AVAILABLE FOR OPPORTUNITIES</span><span>{profile.location} <span className="sep">/</span> Scroll to explore ↓</span></div>
       </section>
 

@@ -13,9 +13,9 @@ This file records agreed wording and project boundaries so future edits do not u
 
 **Eyebrow:** COMPUTER SCIENCE / ARTIFICIAL INTELLIGENCE / SOFTWARE DEVELOPMENT
 
-**Headline:** Hi, I’m Ali Shayan.
+**Headline:** Hi, I’m Ali Shayan Amir.
 
-**Supporting headline:** I build software, explore algorithms, and experiment with machine learning.
+**Supporting headline:** I research and develop machine learning models, explore algorithms, and build software.
 
 **Body:** I have a background in Computer Science and postgraduate study in Artificial Intelligence at Heriot-Watt University. This portfolio brings together projects I’ve worked on across NLP, neural networks, optimisation, computer vision and game development.
 
@@ -52,3 +52,12 @@ Do not add without the portfolio owner's explicit approval.
 - Review PSO card and case study next, including accurate personal contributions and results.
 - Then Good Old Haggis, Skate Fish Escape, smaller projects.
 - Optional future image/design refinement independent of content decisions.
+
+## Confirmed UI refinements — 11 October 2026
+
+- Remove the right-side abstract network illustration from the homepage introduction; do not replace it with another graphic.
+- Display the complete name `Ali Shayan Amir` in the hero heading.
+- Prioritise ML research and model development, then algorithms, then software in the supporting headline.
+- Remove the detached quotation-mark glyph from the dissertation illustration; retain the central text and two illustrative distribution bars. Other visual redesign can wait.
+- Remove `Software` from the available project-filter buttons because it duplicates `Game Development`; leave existing project categories and data untouched. Projects remain accessible through `All work`.
+- Preserve the full dissertation case study and keep the PDF unpublished.

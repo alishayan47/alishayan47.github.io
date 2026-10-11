@@ -4,8 +4,8 @@ export const profile = {
   name: 'Ali Shayan Amir',
   initials: 'AA',
   eyebrow: 'COMPUTER SCIENCE  /  ARTIFICIAL INTELLIGENCE  /  SOFTWARE DEVELOPMENT',
-  headline: 'Hi, I’m Ali Shayan.',
-  statement: 'I build software, explore algorithms, and experiment with machine learning.',
+  headline: 'Hi, I’m Ali Shayan Amir.',
+  statement: 'I research and develop machine learning models, explore algorithms, and build software.',
   summary: 'I have a background in Computer Science and postgraduate study in Artificial Intelligence at Heriot-Watt University. This portfolio brings together projects I’ve worked on across NLP, neural networks, optimisation, computer vision and game development.',
   closing: 'Some focus on research and experimentation. Others are about turning ideas into working systems.',
   location: 'United Kingdom',
@@ -196,4 +196,4 @@ export const projects = [
   }
 ];
 
-export const filters = ['All work', 'AI / ML', 'Software', 'Research', 'Game Development'];
+export const filters = ['All work', 'AI / ML', 'Research', 'Game Development'];
