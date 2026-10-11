@@ -49,7 +49,7 @@ Do not add without the portfolio owner's explicit approval.
 
 ## Remaining work
 
-- Review PSO card and case study next, including accurate personal contributions and results.
+- PSO card and dedicated case study completed in V6; review deployment and any later refinements.
 - Then Good Old Haggis, Skate Fish Escape, smaller projects.
 - Optional future image/design refinement independent of content decisions.
 
@@ -61,3 +61,22 @@ Do not add without the portfolio owner's explicit approval.
 - Remove the detached quotation-mark glyph from the dissertation illustration; retain the central text and two illustrative distribution bars. Other visual redesign can wait.
 - Remove `Software` from the available project-filter buttons because it duplicates `Game Development`; leave existing project categories and data untouched. Projects remain accessible through `All work`.
 - Preserve the full dissertation case study and keep the PDF unpublished.
+
+
+## PSO case study — approved and implemented (V6)
+
+**Full title:** Neural Network Optimisation with Particle Swarm Optimisation.
+
+**Project nature:** Two-person MSc Biologically Inspired Computation coursework. Ali Shayan Amir led much of the technical implementation and experimentation; avoid implying solo authorship. Not a peer-reviewed publication.
+
+**Card visual:** Custom, restrained particle swarm searching over a conceptual fitness landscape. Illustration is explicitly NOT measured experimental data. Implemented using inline SVG in `src/PsoArtwork.jsx`; no generic circular-orbit graphic for this card.
+
+**Full page:** `src/PsoCaseStudy.jsx`, with Overview, Implementation, Experiments & Findings (5 parts), Limitations & Reflections, Project Information. Actual course-report graph assets are reused from `public/media/`.
+
+**Methods:** Configurable NumPy feedforward ANN and from-scratch PSO implementation; flatten/restore network weights and biases as particle vectors; MAE fitness; concrete-strength dataset regression; network architecture and activations, swarm budget/jump size, cognitive/social/global acceleration and inertia, boundary handling, activation pairing.
+
+**Reported findings:** Representative 8–10–1 ANN train MAE 0.084/test MAE 0.087; train MSE 0.0144/test MSE 0.0147. Activation comparison: fixed tanh–linear PSO test MAE 0.1256 versus selected ReLU–sigmoid PSO test MAE 0.0989 (21.2% relative reduction). Not a comparison against gradient descent, Adam, or SGD. Findings about hyperparameter effects are dataset/configuration-specific empirical results, not universal guarantees.
+
+**Media/publication:** No coursework PDF included; no project GitHub URL was added because none was verified. Do not attribute teammates' unconfirmed contributions as personal solo work.
+
+**Unchanged:** Existing profile introduction, filters, dissertation case study and other projects from V5; the V6 patch only edits PSO project copy, adds PSO case-study and SVG modules, app routing and scoped styling.

@@ -45,12 +45,12 @@ export const projects = [
   {
     slug: 'ann-pso',
     title: 'Neural Network Optimisation with PSO',
-    subtitle: 'Training networks without backpropagation',
+    subtitle: 'Built an ANN and a particle-swarm optimiser from scratch to study gradient-free training',
     categories: ['Research', 'AI / ML'],
     tags: ['Particle Swarm Optimisation', 'Neural Networks', 'NumPy', 'Experiments'],
     year: '2026', kind: 'MSc group coursework', prominent: true, art: 'pso',
-    intro: 'Implemented feedforward neural networks and Particle Swarm Optimisation from scratch, then integrated them to optimise weights and biases using predictive error as the fitness objective.',
-    role: 'Led the hands-on implementation and experiments in a two-person coursework project',
+    intro: 'Implemented a configurable feedforward neural network and Particle Swarm Optimisation algorithm from scratch, then integrated them to optimise ANN parameters for concrete-strength prediction. Investigated how activation functions, swarm dynamics and boundary handling affected performance.',
+    role: 'Led much of the implementation and experiments in a two-person coursework project',
     details: [
       'Implemented configurable neural-network forward propagation, activation functions and parameter handling.',
       'Developed PSO mechanics: particles, velocities, personal and global best tracking, search-space constraints and convergence.',
@@ -63,7 +63,7 @@ export const projects = [
       {value:'21.2%', label:'Test MAE reduction in activation experiment'}
     ],
     takeaway: 'Optimisation performance is sensitive to design decisions beyond model architecture—including swarm dynamics and the fitness landscape.',
-    caveat: 'The reported improvement compares two PSO-trained activation configurations, not PSO against gradient descent. Group coursework; individual technical contribution is described above.',
+    caveat: 'The reported improvement compares two PSO-trained activation configurations, not PSO against gradient descent. Results come from the two-person coursework report.',
     links: [],
     figures: [
       {src:'/media/pso-activation-comparison.webp', alt:'Convergence curves for baseline versus selected activation-function configuration', caption:'PSO convergence: baseline tanh–linear versus selected ReLU–sigmoid configuration (coursework experiment).'},

@@ -98,3 +98,40 @@
 .dissertation-sidebar-links p{font-size:11px;color:#8094a5;line-height:1.6}
 @media(max-width:880px){.dissertation-layout{grid-template-columns:1fr;gap:12px}.dissertation-sidebar{position:static;order:-1;border-top:0;border-bottom:1px solid #374454;padding-bottom:28px;margin-bottom:30px}.dissertation-toc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.dissertation-sidebar-links{margin-top:10px}.dissertation-main{padding-top:28px}}
 @media(max-width:700px){.hero{padding-top:88px;min-height:750px}.hero h1{font-size:clamp(41px,9vw,60px)}.hero-statement{font-size:20px}.hero-closing{font-size:14px}.dissertation-header{padding:40px 0 30px}.dissertation-meta{gap:17px}.dissertation-overview{padding:22px 20px;margin-bottom:43px}.dissertation-overview p{font-size:15.5px}.dissertation-toc{grid-template-columns:repeat(2,minmax(0,1fr))}.dissertation-section{padding:37px 0 42px}.dissertation-section p,.dissertation-section li{font-size:15.5px}.dissertation-finding{grid-template-columns:1fr;gap:7px}.research-diagram-caption{font-size:9px}.research-diagram-comment{font-size:11px}.research-diagram-note{font-size:8px}}
+
+/* PSO research/engineering case study. Scoped to the PSO page and title card. */
+.pso-landscape-art{background:radial-gradient(ellipse at 56% 51%,#263e54 0,#172330 53%,#0f1924 100%);display:flex;align-items:center;justify-content:center;padding:8px 15px}
+.pso-art-svg{display:block;width:100%;max-height:100%;height:100%;}
+.pso-page-art{height:min(51vw,400px);min-height:270px;border:1px solid #304454;border-radius:7px;background:radial-gradient(ellipse at 56% 51%,#263e54 0,#172330 53%,#0f1924 100%);margin:0 0 38px;overflow:hidden}
+.pso-page-art .pso-art-svg{width:100%;height:100%}
+.pso-case-study .dissertation-section h3{margin-top:29px}
+.pso-case-study .dissertation-finding h3{margin-top:0}
+.pso-case-study .dissertation-steps h3{margin-top:0}
+.pso-case-study .dissertation-finding{margin:36px 0 50px}
+.pso-parameters-diagram{background:#121e2a;border:1px solid #3a4c5f;border-radius:6px;padding:24px;margin:28px 0 33px}
+.pso-parameters-flow{display:grid;grid-template-columns:1fr 25px 1fr 25px 1fr;align-items:center;gap:12px;margin:24px 0 17px}
+.pso-param-box{min-width:0;min-height:132px;padding:14px 13px;background:#1b2c3c;border:1px solid #3a5369;border-radius:4px;display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:space-between;text-align:center}
+.pso-param-box>span{font:9px 'DM Mono',monospace;color:#a8c6dc;letter-spacing:.04em}
+.pso-param-box strong{font-size:11px;color:#d7e7f2;line-height:1.5}
+.pso-matrix{display:grid;grid-template-columns:repeat(3,9px);gap:5px}
+.pso-matrix i,.pso-vector i{width:9px;height:10px;border-radius:1px;background:#8fbad5}
+.pso-matrix i:nth-child(2n){background:#5c819b}
+.pso-vector{display:flex;gap:3px;max-width:100%}
+.pso-vector i{width:7px;height:10px}
+.pso-vector i:nth-child(3n){background:#c3dfed}
+.pso-fitness-visual{display:flex;align-items:center;gap:8px;font:12px 'DM Mono',monospace;color:#dbeaf4}
+.pso-fitness-visual>span{padding:6px 8px;background:#294457;border:1px solid #5f8399;border-radius:3px}
+.pso-fitness-visual b{color:#92bbd1}
+.pso-diagram-arrow{color:#b4d6e9;font-size:22px;text-align:center}
+.pso-parameters-diagram figcaption{font-size:11px;line-height:1.7;color:#92a8b9}
+.pso-experiment-figure{margin:25px 0 10px;max-width:700px;border:1px solid #334657;border-radius:6px;overflow:hidden;background:#161f29}
+.pso-experiment-figure img{display:block;width:100%;height:auto;max-height:380px;object-fit:contain;background:#f8f9fa}
+.pso-experiment-figure figcaption{padding:12px 15px;font-size:11px;line-height:1.65;color:#a7b8c7}
+.pso-highlight{background:#172938;border-left:2px solid #9ac9e5;padding:19px 24px;display:flex;flex-direction:column;gap:9px;margin:18px 0 25px}
+.pso-highlight strong{font:700 clamp(23px,3vw,31px) Manrope,'DM Sans',sans-serif;color:#e1eef7}
+.pso-highlight span{font-size:13px;color:#b0c6d7;line-height:1.65}
+.pso-info-list{margin:26px 0;display:grid;gap:0;border-top:1px solid #364754}
+.pso-info-list>div{display:grid;grid-template-columns:155px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid #2d3c49}
+.pso-info-list dt{font:11px 'DM Mono',monospace;color:#90aabc}
+.pso-info-list dd{margin:0;font-size:15px;color:#d1dee8;line-height:1.65}
+@media(max-width:700px){.pso-page-art{min-height:220px;height:260px}.pso-parameters-flow{grid-template-columns:1fr;gap:8px}.pso-param-box{min-height:115px}.pso-diagram-arrow{transform:rotate(90deg)}.pso-info-list>div{grid-template-columns:1fr;gap:6px}.pso-case-study .dissertation-finding{margin:30px 0 38px}}
