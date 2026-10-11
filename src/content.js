@@ -145,20 +145,28 @@ export const projects = [
   {
     slug: 'operation-nexus',
     title: 'Operation Nexus',
-    subtitle: 'Integrating a playable science-fiction FPS',
+    subtitle: 'A sci-fi FPS prototype built around level design and gameplay integration',
     categories: ['Game Development', 'Software'],
-    tags: ['Unity', 'C#', 'Figma', 'Game Systems Integration'],
-    year: 'BSc', kind: 'University group project', prominent: false, art: 'nexus', image:'/media/operation-nexus.webp',
-    intro: 'A futuristic first-person shooter assembled from prebuilt maps, controller systems and AI assets, with custom game-state mechanics and original UI work.',
-    role: 'Led much of the game integration and implemented smaller gameplay systems',
+    tags: ['Unity', 'C#', 'FPS Prototype', 'Game Integration', 'UI'],
+    year: 'BSc', kind: 'Bachelor’s group coursework', prominent: false, art: 'nexus', image:'/media/operation-nexus-menu.webp',
+    intro: 'Operation Nexus is a sci-fi first-person shooter prototype developed for bachelor’s group coursework. Rather than building the controller, combat and enemy systems from scratch, we integrated premade mechanics and map assets into a playable game with four increasingly challenging stages.',
+    role: 'Gameplay integration, level design, UI and supporting game-state logic',
     details: [
-      'Integrated premade FPS controller, enemy AI and environment assets into connected levels.',
-      'Implemented supporting gameplay logic including health and win/loss states.',
-      'Designed and implemented the game’s interface with Figma and Unity.'
+      'Integrated a premade FPS player controller and enemy AI with environment assets to create connected gameplay encounters.',
+      'Designed the tutorial, melee, shotgun and boss-battle stages, with increasing difficulty and distinct combat objectives.',
+      'Added collectible health and ammunition pickups, player health handling, and win/lose conditions to complete the gameplay loop.',
+      'Designed and implemented the game UI, including the menu and on-screen health and ammunition displays.'
     ],
-    metrics: [], takeaway: 'Practical game development includes integrating, configuring and debugging disparate systems—not recreating every asset from scratch.',
-    caveat: 'Controller, shooting mechanics, AI and environments were premade third-party assets; they are not claimed as original implementations.',
-    links: []
+    metrics: [],
+    takeaway: 'The project was an exercise in turning existing systems and assets into a coherent playable experience through level design, gameplay logic and integration.',
+    caveat: 'Bachelor’s group coursework. The FPS controller, shooting mechanics, enemy AI and map assets were premade; I do not claim to have created them from scratch. ',
+    links: [],
+    gallery: [
+      {src:'/media/operation-nexus-melee.webp',alt:'Melee encounter with robots inside a futuristic interior',caption:'Melee-focused stage.'},
+      {src:'/media/operation-nexus-shotgun.webp',alt:'Shotgun encounter in a futuristic interior',caption:'Shotgun-focused stage.'},
+      {src:'/media/operation-nexus-pickup.webp',alt:'Health pickup and ammunition in the FPS environment',caption:'Collectible health and ammunition pickups.'},
+      {src:'/media/operation-nexus-city.webp',alt:'Urban environment in a sci-fi FPS',caption:'Urban environment used in the prototype.'}
+    ]
   },
   {
     slug: 'word-embeddings',

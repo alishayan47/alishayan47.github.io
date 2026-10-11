@@ -119,3 +119,12 @@ Do not add without the portfolio owner's explicit approval.
 - Game overview may mention branching routes, varied encounters and purchasable cards; do not imply the author implemented all of those systems.
 - Public playable link: https://darmit165.itch.io/draculas-return
 - Replace generic card art with the user’s genuine title-screen capture; show only two further genuine screenshots (route map and combat scene) on the supporting-project page. Do not add PDF or a long case study.
+
+
+## V10 — Operation Nexus (supporting project)
+- This is a compact bachelor’s group-coursework FPS prototype, not a new technical flagship case study.
+- Original work emphasised assembling premade Unity FPS controllers and enemy AI with level/map assets, custom health and ammo pickups, win/lose conditions, menus and UI. Do not claim controllers, enemy AI, shooting mechanics or art were developed from scratch.
+- Progression: tutorial, melee, shotgun, and boss-battle levels with increasing difficulty.
+- Project artwork based on user-supplied low-resolution prototype frames, with enhancement used for presentation. User requested no visual-enhancement footnote on the public project page; captions describe gameplay scenes without claiming these to be untouched source frames.
+- No PDF, video, external link or unrelated code changes.
+- Keep the four flagship case studies, Dracula’s Return, and introduction unchanged.
