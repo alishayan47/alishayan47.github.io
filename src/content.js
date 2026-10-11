@@ -175,6 +175,8 @@ export const projects = [
     categories: ['Research', 'AI / ML'],
     tags: ['LLM Safety', 'Data Preparation', 'Model Evaluation', 'QLoRA'],
     year: '2026', kind: 'Six-person MSc group research coursework', prominent: false, art: 'safety',
+    image: '/media/safety-helpfulness-minimal.webp',
+    imageAlt: 'Minimal diagram contrasting safety and helpfulness in language models',
     intro: 'An MSc group research project investigating the tension between refusing harmful requests and remaining helpful on legitimate ones. Our team compared safety-tuned Llama 3.1, Qwen 2.5 and Gemma 2 models using 3,000- and 4,000-example training sets, then assessed six model configurations on 1,450 test prompts.',
     role: 'Dataset sourcing, cleaning and preparation; supporting evaluation runs',
     details: [

@@ -60,7 +60,7 @@ function Graphic({ project, large = false }) {
     <div className="research-diagram-groups"><div><span>Group A</span><div className="research-distribution-bar"><i style={{width:'33%'}}/><b style={{width:'67%'}}/></div></div><div><span>Group B</span><div className="research-distribution-bar"><i style={{width:'50%'}}/><b style={{width:'50%'}}/></div></div></div>
     <div className="research-diagram-note">Illustrative annotation distributions · not model results</div></div>
   </div>;
-  if (project.image) return <div className={`project-art ${project.slug === 'skate-fish' ? 'skate-project-art' : project.slug === 'draculas-return' ? 'dracula-project-art' : ''} ${large ? 'project-art-large' : ''}`}><img src={project.image} alt={project.slug === 'operation-nexus' ? 'Operation Nexus sci-fi FPS title menu' : `Actual gameplay screenshot from ${project.title}`} loading="lazy" /></div>;
+  if (project.image) return <div className={`project-art ${project.slug === 'skate-fish' ? 'skate-project-art' : project.slug === 'draculas-return' ? 'dracula-project-art' : project.slug === 'llm-safety' ? 'safety-project-art' : ''} ${large ? 'project-art-large' : ''}`}><img src={project.image} alt={project.imageAlt || (project.slug === 'operation-nexus' ? 'Operation Nexus sci-fi FPS title menu' : `Actual gameplay screenshot from ${project.title}`)} loading="lazy" /></div>;
   return <div aria-hidden="true" className={`project-art generated-art art-${project.art} ${large ? 'project-art-large' : ''}`}>
     <div className="visual-grid" />
     {project.art === 'pso' ? <div className="pso-orbit"><i/><i/><i/><i/><i/><i/></div> : null}

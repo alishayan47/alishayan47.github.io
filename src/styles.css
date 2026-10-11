@@ -304,3 +304,12 @@
 .tag-row span { font-size: 11px; }
 .hero-bottom, .footer-inner { font-size: 11.5px; }
 .credential > span:last-child { font-size: 12px; }
+
+/* Safety–Helpfulness is a designed infographic, not a gameplay photograph.
+   Preserve text contrast and the full diagram within the image frame. */
+.safety-project-art { background: #0d141d; }
+.safety-project-art img,
+.project-card:hover .safety-project-art img {
+  object-fit: contain;
+  filter: none;
+}
