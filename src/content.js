@@ -9,7 +9,7 @@ export const profile = {
   summary: 'I have a background in Computer Science and postgraduate study in Artificial Intelligence at Heriot-Watt University. This portfolio brings together projects I’ve worked on across NLP, neural networks, optimisation, computer vision and game development.',
   closing: 'Some focus on research and experimentation. Others are about turning ideas into working systems.',
   location: 'United Kingdom',
-  email: '', // Set your actual email to enable the Email link
+  email: 'a.shayan.amir47@gmail.com',
   github: 'https://github.com/alishayan47',
   linkedin: 'https://www.linkedin.com/in/ali-shayan-nlp-ml-game-developer/',
   cvPath: '', // Add your CV to public/CV.pdf then set to '/CV.pdf'

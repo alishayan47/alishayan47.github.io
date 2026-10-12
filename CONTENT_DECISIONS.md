@@ -146,3 +146,9 @@ Do not add without the portfolio owner's explicit approval.
 - Dataset caveat: 3K was 2,500 unsafe / 500 safe; 4K was 2,000 unsafe / 2,000 safe. Do NOT imply this is a clean size-only scaling experiment.
 - Individual contribution reported by author: dataset sourcing/cleaning/preparation and assistance with evaluation runs. Fine-tuning was by other team members / a collaborative component, not personally claimed.
 - No publication or hosted PDF claim, no new images, no changes to visual V11 motion.
+
+
+## V14 — Skills and contact (12 October 2026)
+- Add C++ to the About section skills tags.
+- Enable public contact email `a.shayan.amir47@gmail.com` and display the email address as a clickable mailto link.
+- Preserve all layout, visual effects, project media, and case study content.
